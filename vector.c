@@ -1,5 +1,6 @@
 #include "vector.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 t_vector		*vector_construct(int max_size)
 {
@@ -27,4 +28,19 @@ void			vector_push(t_vector *v, t_tooth_brush *t)
 t_tooth_brush	*vector_element(t_vector *v, int i)
 {
 	return(v->array[i]);
+}
+
+t_tooth_brush	*vector_pop(t_vector *v)
+{
+	t_tooth_brush	*t;
+
+	if (0 == v->size)
+	{
+		printf("error: poped from an empty vector!\n");
+		return (0);
+	}
+	t = v->array[v->size - 1];
+	v->array[v->size - 1] = 0;
+	v->size--;
+	return (t);
 }

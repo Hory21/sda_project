@@ -1,5 +1,6 @@
 #include "vector.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 void	vector_print(t_vector* v)
 {
@@ -26,6 +27,9 @@ int		main()
 	vector_push(v, t);
 	vector_push(v, t2);
 	vector_push(v, t3);
+	vector_print(v);
+	vector_pop(v);
+	printf("\n");
 	vector_print(v);
 
 	tooth_brush_destruct(t);
