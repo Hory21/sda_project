@@ -16,6 +16,7 @@ void	vector_print(t_vector *v)
 				vector_iterator_element(it)->year);
 		vector_iterator_next(it);
 	}
+	vector_iterator_destruct(it);
 }
 
 int		main()
