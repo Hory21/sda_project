@@ -44,3 +44,43 @@ t_tooth_brush	*vector_pop(t_vector *v)
 	v->size--;
 	return (t);
 }
+
+int				vector_size(t_vector *v)
+{
+	return (v->size);
+}
+
+void			vector_modify(t_vector *v, int i, t_tooth_brush *t)
+{
+	t_tooth_brush	*to_destruct;
+
+	to_destruct = vector_element(v, i);
+	v->array[i] = t;
+	tooth_brush_destruct(to_destruct);
+}
+
+void			vector_add(t_vector *v, int i, t_tooth_brush *t)
+{
+	int	j;
+
+	for (j = v->size; j > i; j--)
+	{
+		v->array[j] = v->array[j - 1];
+	}
+	v->array[i] = t;
+	v->size++;
+}
+
+void			vector_delete(t_vector *v, int i)
+{
+	t_tooth_brush	*to_destruct;
+	int				j;
+
+	to_destruct = v->array[i];
+	for (j = i; j <= v->size - 2; j++)
+	{
+		v->array[j] = v->array[j + 1];
+	}
+	tooth_brush_destruct(to_destruct);
+	v->size--;
+}
