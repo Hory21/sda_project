@@ -1,14 +1,20 @@
 #include "vector.h"
+#include "vector_iterator.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-void	vector_print(t_vector* v)
+void	vector_print(t_vector *v)
 {
-	int	i;
+	t_vector_iterator	*it;
 
-	for (i = 0; i < v->size; i++)
+	it = vector_iterator_construct(v);
+	while (vector_iterator_valid(it))
 	{
-		tooth_brush_print(vector_element(v, i));
+		printf("%s %d %d\n",
+				vector_iterator_element(it)->name,
+				vector_iterator_element(it)->length,
+				vector_iterator_element(it)->year);
+		vector_iterator_next(it);
 	}
 }
 
