@@ -11,5 +11,6 @@ typedef struct	s_tooth_brush
 t_tooth_brush	*tooth_brush_construct(char *name, int length, int year);
 void			tooth_brush_destruct(t_tooth_brush* t);
 void			tooth_brush_print(t_tooth_brush* t);
+int				tooth_brush_cmp(t_tooth_brush *t1, t_tooth_brush *t2);
 
 #endif

@@ -24,3 +24,12 @@ void			tooth_brush_print(t_tooth_brush* t)
 {
 	printf("%s %d %d\n", t->name, t->length, t->year);
 }
+
+int				tooth_brush_cmp(t_tooth_brush *t1, t_tooth_brush *t2)
+{
+	if (t1->length > t2->length)
+	{
+		return (1);
+	}
+	return (0);
+}

@@ -1,6 +1,7 @@
 #include "vector.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "heap.h"
 
 t_vector		*vector_construct(int max_size)
 {
@@ -83,4 +84,20 @@ void			vector_delete(t_vector *v, int i)
 	}
 	tooth_brush_destruct(to_destruct);
 	v->size--;
+}
+
+void			vector_sort(t_vector *v)
+{
+	t_heap	*h;
+
+	h = heap_construct(128);
+	while (v->size > 0)
+	{
+		heap_push(h, vector_pop(v));
+	}
+	while (h->size > 0)
+	{
+		vector_push(v, heap_pop(h));
+	}
+	heap_destruct(h);
 }
