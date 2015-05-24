@@ -45,21 +45,27 @@ void			heap_balance_down(t_heap *h, int i)
 	{
 		return ;
 	}
-	if (tooth_brush_cmp(h->array[i], h->array[child1(i)]))
+	else if ((child2(i) >= h->size) &&
+			(tooth_brush_cmp(h->array[i], h->array[child1(i)])))
 	{
 		swap(h, i, child1(i));
 		heap_balance_down(h, child1(i));
 		return ;
 	}
-	if (child2(i) >= h->size)
+	else if (child2(i) < h->size)
 	{
-		return ;
-	}
-	if (tooth_brush_cmp(h->array[i], h->array[child2(i)]))
-	{
-		swap(h, i, child2(i));
-		heap_balance_down(h, child2(i));
-		return ;
+		if (tooth_brush_cmp(h->array[i], h->array[child1(i)]) &&
+				tooth_brush_cmp(h->array[child2(i)], h->array[child1(i)]))
+		{
+			swap(h, i, child1(i));
+			heap_balance_down(h, child1(i));
+			return ;
+		}
+		if (tooth_brush_cmp(h->array[i], h->array[child2(i)]))
+		{
+			swap(h, i, child2(i));
+			heap_balance_down(h, child2(i));
+		}
 	}
 }
 

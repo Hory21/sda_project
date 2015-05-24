@@ -19,5 +19,6 @@ int					vector_size(t_vector *v);
 void				vector_modify(t_vector *v, int i, t_tooth_brush *t);
 void				vector_add(t_vector *v, int i, t_tooth_brush *t);
 void				vector_delete(t_vector *v, int i);
+void				vector_sort(t_vector *v);
 
 #endif
