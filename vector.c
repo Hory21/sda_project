@@ -16,6 +16,14 @@ t_vector		*vector_construct(int max_size)
 
 void			vector_destruct(t_vector *v)
 {
+	int	i;
+	int	n;
+
+	n = vector_size(v);
+	for (i = 0; i < n; i++)
+	{
+		tooth_brush_destruct(v->array[i]);
+	}
 	free(v->array);
 	free(v);
 }

@@ -1,1 +1,1 @@
-gcc -Wall -Werror -Wextra  *.c
+gcc -Wall -Werror -Wextra  *.c -o main.executable
